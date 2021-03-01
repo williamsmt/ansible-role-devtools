@@ -40,6 +40,7 @@
 
 - name: Install Hashicorp repo
   shell: yum-config-manager --add-repo {{ __hashi_download_root }}/{{ __hashi_releases[ansible_distribution] }}/hashicorp.repo # noqa command-instead-of-shell
+  when: hashi_packages is defined
   changed_when: false
 
 ...

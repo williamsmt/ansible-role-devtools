@@ -40,12 +40,12 @@
   apt_key:
     url: "{{ __hashi_download_root }}/gpg"
     state: present
-  when: install_hashi_tools|bool
+  when: hashi_packages is defined
 
 - name: Install Hashicorp repository
   apt_repository:
     repo: "deb [arch={{ debian_cpu_arch }}] {{ __hashi_download_root }} {{ ansible_distribution_release }} {{ hashi_debian_channel }}"
     state: present
     update_cache: true
-  when: install_hashi_tools|bool
+  when: hashi_packages is defined
 ...
