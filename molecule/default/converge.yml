@@ -17,7 +17,7 @@
   hosts: all
   vars:
     hashi_packages:
-      - terraform=0.13.6
+      - terraform
       - packer
 
   pre_tasks:
