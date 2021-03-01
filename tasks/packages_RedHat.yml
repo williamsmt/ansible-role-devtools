@@ -1,0 +1,46 @@
+---
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- name: Include Redhat variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Enable epel on CentOS 8
+  dnf:
+    name: "{{ __epel_package }}"
+    state: present
+  when: __epel_package is defined and
+        (ansible_distribution == "CentOS" and ansible_distribution_major_version == '8')
+  changed_when: false
+
+- name: Enable epel on CentOS 7
+  yum:
+    name: "{{ __epel_package }}"
+    state: present
+  when: __epel_package is defined and
+        (ansible_distribution == "CentOS" and ansible_distribution_major_version == '7')
+  changed_when: false
+
+- name: Install prereq packages
+  package:
+    name: "{{ __redhat_prereqs }}"
+    state: present
+  when: __redhat_prereqs is defined
+
+- name: Install Hashicorp repo
+  shell: yum-config-manager --add-repo {{ __hashi_download_root }}/{{ __hashi_releases[ansible_distribution] }}/hashicorp.repo # noqa command-instead-of-shell
+  when: hashi_packages is defined
+  changed_when: false
+
+...
