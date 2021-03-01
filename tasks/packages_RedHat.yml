@@ -39,10 +39,7 @@
   when: __redhat_prereqs is defined
 
 - name: Install Hashicorp repo
-  yum_repository:
-    name: Hashicorp
-    description: Hashicorp Repository
-    baseurl: "{{ __hashi_download_root }}/{{ __hashi_releases[ansible_distribution] }}/$releasever/$basearch"
-    gpgcheck: yes
-    gpgkey: "{{ __hashi_download_root }}/gpg"
+  shell: yum-config-manager --add-repo {{ __hashi_download_root }}/{{ __hashi_releases[ansible_distribution] }}/hashicorp.repo
+  changed_when: false
+
 ...
