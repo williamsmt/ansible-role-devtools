@@ -39,7 +39,7 @@
   when: __redhat_prereqs is defined
 
 - name: Install Hashicorp repo
-  shell: yum-config-manager --add-repo {{ __hashi_download_root }}/{{ __hashi_releases[ansible_distribution] }}/hashicorp.repo
+  shell: yum-config-manager --add-repo {{ __hashi_download_root }}/{{ __hashi_releases[ansible_distribution] }}/hashicorp.repo # noqa command-instead-of-shell
   changed_when: false
 
 ...
