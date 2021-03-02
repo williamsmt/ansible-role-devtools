@@ -33,4 +33,5 @@ __hashi_releases:
   Fedora: fedora
 
 __hashi_download_root: https://rpm.releases.hashicorp.com
+
 ...

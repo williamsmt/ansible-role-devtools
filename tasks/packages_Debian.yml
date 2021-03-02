@@ -42,10 +42,23 @@
     state: present
   when: hashi_packages is defined
 
+- name: Install gcloud GPG key
+  apt_key:
+    url: "{{ gcloud_download_root }}/apt/doc/apt-key.gpg"
+    state: present
+  when: gcloud_packages is defined
+
 - name: Install Hashicorp repository
   apt_repository:
     repo: "deb [arch={{ debian_cpu_arch }}] {{ __hashi_download_root }} {{ ansible_distribution_release }} {{ hashi_debian_channel }}"
     state: present
     update_cache: true
   when: hashi_packages is defined
+
+- name: Install gcloud SDK
+  apt_repository:
+    repo: "deb {{ gcloud_download_root }}/apt cloud-sdk {{ gcloud_debian_channel }}"
+    state: present
+    update_cache: True
+  when: gcloud_packages is defined
 ...

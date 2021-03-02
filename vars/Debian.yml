@@ -18,6 +18,7 @@ __debian_prereqs:
   - ca-certificates
   - software-properties-common
   - curl
+  - gnupg
   - gpg
   - gpg-agent
   - git

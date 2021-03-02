@@ -49,4 +49,24 @@
   when: hashi_packages is defined
   changed_when: false
 
+- name: Set Fedora gcloud release version
+  set_fact:
+    gcloud_release_version: "8"
+  when: ansible_distribution == "Fedora"
+
+- name: Set EL gcloud release version
+  set_fact:
+    gcloud_release_version: "{{ ansible_distribution_major_version }}"
+  when: ansible_distribution != "Fedora"
+
+- name: Install gcloud repo
+  yum_repository:
+    name: google-cloud-sdk
+    description: Google Cloud SDK
+    baseurl: "{{ gcloud_download_root }}/yum/repos/cloud-sdk-el{{ gcloud_release_version }}-{{ ansible_architecture }}"
+    gpgcheck: yes
+    gpgkey: 
+      - "{{ gcloud_download_root }}/yum/doc/yum-key.gpg"
+      - "{{ gcloud_download_root }}/yum/doc/rpm-package-key.gpg"
+
 ...

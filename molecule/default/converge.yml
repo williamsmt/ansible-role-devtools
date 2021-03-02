@@ -24,6 +24,8 @@
       - ansible-lint
       - yamllint
       - molecule[docker]
+    gcloud_packages:
+      - google-cloud-sdk
 
   pre_tasks:
     - name: Waiting on systemd to do its thing
