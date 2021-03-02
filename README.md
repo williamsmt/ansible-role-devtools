@@ -16,6 +16,7 @@ Role Variables
 | hashi_packages | no | null | any available Hashicorp package from the vendor repo |      |
 | hashi_debian_channel | yes | main | main | Controls APT mirror used |
 | hashi_rhel_channel | yes | stable | stable,test | Controls Yum mirror used |
+| ansible_packages | no | null | any available python package via pip | |
 
 Dependencies
 ------------
@@ -44,9 +45,14 @@ Sample playbook passing mix of latest packages and specific point release versio
           hashi_packages:
             - terraform=0.13.6
             - packer
+          ansible_packages:
+            - ansible==2.9.18
+            - ansible-lint
+            - yamllint
+            - molecule[docker]
 
         roles:
-          - ./roles/ansible-role-docker
+          - ./roles/ansible-role-devtools
 
 Run the playbook as:
 

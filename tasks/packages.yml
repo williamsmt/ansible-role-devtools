@@ -19,4 +19,9 @@
     state: present
   when: hashi_packages is defined
 
+- name: Install Ansible and Molecule
+  pip:
+    name: "{{ ansible__packages }}"
+  when: ansible_packages is defined
+
 ...

@@ -20,4 +20,10 @@ hashi_packages: []
 hashi_debian_channel: main
 hashi_rhel_channel: stable
 
+ansible_packages: []
+#  - ansible==2.9.18
+#  - ansible-lint
+#  - yamllint
+#  - molecule[docker]
+
 ...
