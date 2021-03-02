@@ -13,6 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Upgrade pip
+  pip:
+    name: pip # noqa package-latest
+    executable: pip3
+    state: latest
+
 - name: Install Hashicorp packages
   package:
     name: "{{ hashi_packages }}"
@@ -22,6 +28,7 @@
 - name: Install Ansible and Molecule
   pip:
     name: "{{ ansible_packages }}"
+    executable: pip3
   when: ansible_packages is defined
 
 - name: Install gcloud SDK
