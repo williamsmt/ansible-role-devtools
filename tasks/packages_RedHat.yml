@@ -49,10 +49,15 @@
   when: hashi_packages is defined
   changed_when: false
 
-- name: Set Fedora gcloud release version
+- name: Set Fedora 32 gcloud release version
   set_fact:
-    gcloud_release_version: "{{ __gcloud_releases[ansible_distribution_major_version] }}"
-  when: ansible_distribution == "Fedora"
+    gcloud_release_version: "7"
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "32"
+
+- name: Set Fedora 33 gcloud release version
+  set_fact:
+    gcloud_release_version: "8"
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "33"
 
 - name: Set EL gcloud release version
   set_fact:

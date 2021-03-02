@@ -34,7 +34,4 @@ __hashi_releases:
 
 __hashi_download_root: https://rpm.releases.hashicorp.com
 
-__gcloud_releases:
-  32: 7
-  33: 8
 ...
