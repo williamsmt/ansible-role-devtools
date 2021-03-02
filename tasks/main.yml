@@ -15,6 +15,10 @@
 
 - name: Install dependencies and prereqs
   include_tasks: packages_{{ ansible_os_family }}.yml
+  args:
+    apply:
+      become: true
+      become_method: sudo
 
 - name: Install developer tools
   include_tasks: packages.yml
