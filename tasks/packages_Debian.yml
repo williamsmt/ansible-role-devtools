@@ -36,6 +36,12 @@
     state: present
   when: __debian_prereqs is defined
 
+- name: Remove Debian package conflicts
+  package:
+    name: "{{ __debian_conflicts }}"
+    state: absent
+  when: __debian_conflicts is defined
+
 - name: Install Hashicorp GPG key
   apt_key:
     url: "{{ __hashi_download_root }}/gpg"
@@ -55,7 +61,7 @@
     update_cache: true
   when: hashi_packages is defined
 
-- name: Install gcloud SDK
+- name: Install gcloud SDK repo
   apt_repository:
     repo: "deb {{ gcloud_download_root }}/apt cloud-sdk {{ gcloud_debian_channel }}"
     state: present
