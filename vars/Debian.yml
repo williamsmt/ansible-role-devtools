@@ -24,5 +24,11 @@ __debian_prereqs:
   - git
   - python3-pip
 
+__debian_conflicts:
+  - python3-yaml
+
+__debian_pip_depends:
+  - enum34
+
 __hashi_download_root: https://apt.releases.hashicorp.com
 ...

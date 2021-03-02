@@ -41,4 +41,4 @@
       failed_when: systemctl_status.rc >1
 
   roles:
-    - ../../ansible-role-devtools
+    - role: ansible-role-devtools
