@@ -21,7 +21,7 @@
 
 - name: Install Ansible and Molecule
   pip:
-    name: "{{ ansible__packages }}"
+    name: "{{ ansible_packages }}"
   when: ansible_packages is defined
 
 ...
