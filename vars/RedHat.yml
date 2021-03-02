@@ -20,6 +20,9 @@ __redhat_prereqs:
   - python3-pip
   - yum-utils
 
+__redhat_conflicts:
+  - python3-pyyaml
+
 __epel_package:
   - epel-release
 
