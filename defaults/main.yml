@@ -26,4 +26,10 @@ ansible_packages: []
 #  - yamllint
 #  - molecule[docker]
 
+gcloud_download_root: https://packages.cloud.google.com
+
+gcloud_packages: []
+#  - google-cloud-sdk
+
+gcloud_debian_channel: main
 ...

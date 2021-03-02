@@ -17,6 +17,9 @@ Role Variables
 | hashi_debian_channel | yes | main | main | Controls APT mirror used |
 | hashi_rhel_channel | yes | stable | stable,test | Controls Yum mirror used |
 | ansible_packages | no | null | any available python package via pip | |
+| gcloud_download_root | yes | https://packages.cloud.google.com | Any public repo URL | |
+| gcloud_packages | no | null | Google package name for gcloud SDK | |
+| gcloud_debian_channel | yes | main | main | Controls APT mirror used |
 
 Dependencies
 ------------

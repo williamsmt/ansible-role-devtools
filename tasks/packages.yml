@@ -24,4 +24,9 @@
     name: "{{ ansible_packages }}"
   when: ansible_packages is defined
 
+- name: Install gcloud SDK
+  package:
+    name: "{{ gcloud_packages }}"
+  when: gcloud_packages is defined
+
 ...

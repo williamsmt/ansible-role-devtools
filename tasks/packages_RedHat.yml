@@ -49,4 +49,14 @@
   when: hashi_packages is defined
   changed_when: false
 
+- name: Install gcloud repo
+  yum_repository:
+    name: Google Cloud SDK
+    description: Google Cloud SDK
+    baseurl: "{{ gcloud_download_root }}/yum/repos/cloud-sdk-el{{ ansible_distribution_major_version }}-{{ ansible_architecture }}"
+    gpgcheck: yes
+    gpgkey: 
+      - "{{ gcloud_download_root }}/yum/doc/yum-key.gpg"
+      - "{{ gcloud_download_root }}/yum/doc/rpm-package-key.gpg"
+
 ...
