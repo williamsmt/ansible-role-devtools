@@ -51,7 +51,7 @@
 
 - name: Install gcloud repo
   yum_repository:
-    name: Google Cloud SDK
+    name: google-cloud-sdk
     description: Google Cloud SDK
     baseurl: "{{ gcloud_download_root }}/yum/repos/cloud-sdk-el{{ ansible_distribution_major_version }}-{{ ansible_architecture }}"
     gpgcheck: yes
