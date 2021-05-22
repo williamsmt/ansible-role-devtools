@@ -30,7 +30,7 @@ Sample requirements.yml file for custom playbook:
 
     roles:
       - src: https://github.com/williamsmt/ansible-role-devtools.git
-        version: 21.2.3
+        version: 21.5.1
         name: ansible-role-devtools
 
 To install this role using a requirements.yml file in the playbook directory:
@@ -50,7 +50,7 @@ Sample playbook passing mix of latest packages and specific point release versio
             - packer
           ansible_packages:
             - ansible==2.9.18
-            - ansible-lint
+            - ansible-lint==5.0.10
             - yamllint
             - molecule[docker]
 
