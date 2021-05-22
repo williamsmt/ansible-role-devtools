@@ -21,7 +21,7 @@
       - packer
     ansible_packages:
       - ansible==2.9.18
-      - ansible-lint==5.0.10
+      - ansible-lint
       - yamllint
       - molecule[docker]
     gcloud_packages:
